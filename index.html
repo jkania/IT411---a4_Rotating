@@ -1,0 +1,58 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>IT 411 - Jennifer Kania - Assignment 4 - Rotating Messages</title>
+   <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="https://use.edgefonts.net/source-sans-pro:n4,i4,n6,i6:all.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $("#rotating").focus();
+        //display the first message on page load
+        var messages_place = 0;
+        display_messages();
+    
+        function display_messages (){
+            
+            var messages = ['Snow Is White', 
+                    'Snow Is Everywhere', 
+                    'Snow Is Slippery', 
+                    'Sledding Is Fun', 
+                    'It Is Cold Outside', 
+                    'Time For A Trip', 
+                    'Somewhere Warm Would Be Good', 
+                    'Spring Will Be Here Soon', 
+                    'We Will Be Happy When All The Snow Melts', 
+                    'And Then We Will Start Complaining We Are Too Warm!'];
+            
+           
+            var message = messages[messages_place];
+             $("div#output").html("<h1>Message : " + message + "</h1>");
+    }
+        
+        
+      $("#rotating").keyup(function() {
+          if (messages_place <= 8) {
+            messages_place = messages_place+1;
+          }
+          else {
+              messages_place = 0;
+          }
+          display_messages();
+          
+           
+         });
+        });
+  </script>
+</head>
+<body>
+  <h1>IT 411 - Assignment 4 - Rotating Messages</h1>
+  <h2>Enter any value to see a message</h2>
+  <hr />
+  <input type="text" id="rotating">
+  <div id="output"></div>
+    <div>
+    <footer>Created by Jennifer Kania</footer>
+        </div>
+</body>
+</html>
